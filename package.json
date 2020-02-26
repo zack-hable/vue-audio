@@ -1,5 +1,5 @@
 {
-  "name": "vue-boostrap-audio",
+  "name": "vue-bootstrap-audio",
   "version": "0.1.2",
   "description": "Vue.js audio files player with no framework (depends external bootstrap and font awesome CSS)",
   "main": "index.js",
