@@ -1,4 +1,4 @@
-import VueAudio from './src/vueaudio.vue'
+import VueBootstrapAudio from './src/vuebootstrapaudio.vue'
 
-export default VueAudio
-export { VueAudio }
+export default VueBootstrapAudio
+export { VueBootstrapAudio }

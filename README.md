@@ -1,9 +1,9 @@
-# vuetify-audio
+# vue-bootstrap-audio
 <a href="https://www.npmjs.com/package/vuetify-audio"><img src="https://img.shields.io/npm/dt/vuetify-audio.svg" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/vuetify-audio"><img src="https://img.shields.io/npm/v/vuetify-audio.svg" alt="Version"></a>
 <a href="https://www.npmjs.com/package/vuetify-audio"><img src="https://img.shields.io/npm/l/vuetify-audio.svg" alt="License"></a>
 
-Vue.js sound audio player base on Vuetify UI framework. Covers audio-tag API and adds more.
+Vue.js sound audio player based on Bootstrap 4 and Font awesome CSS. Covers audio-tag API and adds more.
 
 ### Demo
 
@@ -11,25 +11,13 @@ https://wilsonwu.github.io/dist/index.html#/vuetifyaudio
 
 ### Installation
 
-Use npm: ```npm install vuetify-audio --save```
+Use npm: ```npm install vue-boostrap-audio --save```
 
 ### Usage
-At first make sure your project is Vue project, and has ```Vuetify``` as UI framework:
-1. Install Vuetify:
-```
-npm install vuetify --save-dev
-```
-2. Add Vuetify to ```app.js``` or ```main.js```:
-```js
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
-
-Vue.use(Vuetify);
-```
-
+1.
 Add below code into your ```<script>```:
 ```js
-import VuetifyAudio from 'vuetify-audio';
+import VueBootstrapAudio from 'vue-bootstrap-audio';
 
 export default {
     data() {
@@ -38,7 +26,7 @@ export default {
         };
     },
     components: {
-        'vuetify-audio': VuetifyAudio
+        'vue-bootstrap-audio': VuetifyBootstrapAudio
     },
     // If you want to use ended callback add below code
     methods: {
@@ -52,7 +40,7 @@ export default {
 
 And below code in the ```<template>```:
 ```js
-<vuetify-audio :file="file" :ended="audioFinish"></vuetify-audio>
+<vue-bootstrap-audio :file="file" :ended="audioFinish"></vue-bootstrap-audio>
 ```
 
 
