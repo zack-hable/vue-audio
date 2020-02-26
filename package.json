@@ -1,7 +1,7 @@
 {
-  "name": "vue-audio",
+  "name": "vue-boostrap-audio",
   "version": "0.1.2",
-  "description": "Vue.js audio files player with no framework (depends external bootstrap CSS)",
+  "description": "Vue.js audio files player with no framework (depends external bootstrap and font awesome CSS)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,9 +20,11 @@
     "player",
     "vue",
     "vue.js",
-    "bootstrap"
+    "bootstrap",
+    "font-awesome"
   ],
   "author": "Wilson Wu",
+  "contributors": ["Zack Hable"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zack-hable/vue-audio/issues"
@@ -39,5 +41,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bootstrap": "^4.0.0"
+  }
 }
