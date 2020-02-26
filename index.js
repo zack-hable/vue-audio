@@ -1,4 +1,4 @@
-import VuetifyAudio from './src/vuetifyaudio.vue'
+import VueAudio from './src/vueaudio.vue'
 
-export default VuetifyAudio
-export { VuetifyAudio }
+export default VueAudio
+export { VueAudio }
