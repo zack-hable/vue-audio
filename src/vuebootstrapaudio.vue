@@ -16,9 +16,8 @@
 				<i class="fas fa-redo-alt fa-fw" v-if="!loaded"></i>
 				<i class="fas fa-file-download fa-fw" v-else></i>
 			</button>
-			<div class="progress mb-2">
-				<div class="progress-bar" height="5" role="progressbar" :aria-valuenow="percentage" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: percentage + '%'}" @click="setPositio
-					n()" color="teal" :disabled="!loaded"></div>
+			<div class="progress mb-2" @click="setPosition($event)">
+				<div class="progress-bar" height="5" role="progressbar" :aria-valuenow="percentage" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: percentage + '%'}" :disabled="!loaded"></div>
 			</div>
 			<p>{{ currentTime }} / {{ duration }}</p>
 		</div>
@@ -29,7 +28,7 @@
 const formatTime = second => new Date(second * 1000).toISOString().substr(11, 8);
 
 export default {
-	name: 'vuetify-audio',
+	name: 'vue-bootstrap-audio',
 	props: {
 		file: {
 			type: String,
@@ -68,7 +67,8 @@ export default {
 	},
 
 	methods: {
-		setPosition () {
+		setPosition (event) {
+			this.percentage = event.offsetX / event.target.clientWidth * 100;
 			this.audio.currentTime = parseInt(this.audio.duration / 100 * this.percentage);
 		},
 		stop () {
