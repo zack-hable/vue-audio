@@ -21,7 +21,9 @@
 			</div>
 			<p>{{ currentTime }} / {{ duration }}</p>
 		</div>
-		<audio id="player" ref="player" v-on:ended="ended" v-on:canplay="canPlay" :src="file"></audio>
+		<audio id="player" ref="player" v-on:ended="ended" v-on:canplay="canPlay">
+			<source :src="file">
+		</audio>
 	</div>
 </template>
 <script>
@@ -145,6 +147,7 @@ export default {
 			this.audio.addEventListener('pause', this._handlePlayPause);
 			this.audio.addEventListener('play', this._handlePlayPause);
 			this.audio.addEventListener('ended', this._handleEnded);
+			this.audio.load();
 		},
 	},
 	mounted () {

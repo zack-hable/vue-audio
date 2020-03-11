@@ -26,7 +26,7 @@ export default {
         };
     },
     components: {
-        'vue-bootstrap-audio': VuetifyBootstrapAudio
+        'vue-bootstrap-audio': VueBootstrapAudio
     },
     // If you want to use ended callback add below code
     methods: {
