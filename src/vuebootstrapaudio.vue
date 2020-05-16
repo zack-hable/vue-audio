@@ -14,7 +14,7 @@
 			</button>
 			<button class="btn btn-outline-primary rounded-circle mb-2" @click="loaded ? download() : reload()">
 				<i class="fas fa-redo-alt fa-fw" v-if="!loaded"></i>
-				<i class="fas fa-file-download fa-fw" v-else></i>
+				<i class="fas fa-file-download fa-fw" v-if="loaded && canDownload"></i>
 			</button>
 			<div class="progress mb-2" @click="setPosition($event)">
 				<div class="progress-bar" height="5" role="progressbar" :aria-valuenow="percentage" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: percentage + '%'}" :disabled="!loaded"></div>
@@ -48,6 +48,10 @@ export default {
 			type: Function,
 			default: () => {},
 		},
+		canDownload: {
+			type: Boolean,
+			default: true
+		}
 	},
 	computed: {
 		duration: function () {
