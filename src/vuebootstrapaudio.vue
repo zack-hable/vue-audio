@@ -12,7 +12,7 @@
 				<i class="fas fa-volume-up fa-fw" v-if="!isMuted"></i>
 				<i class="fas fa-volume-off fa-fw" v-else></i>
 			</button>
-			<button class="btn btn-outline-primary rounded-circle mb-2" @click="loaded ? download() : reload()">
+			<button class="btn btn-outline-primary rounded-circle mb-2" v-if="!loaded || canDownload" @click="loaded && canDownload ? download() : reload()">
 				<i class="fas fa-redo-alt fa-fw" v-if="!loaded"></i>
 				<i class="fas fa-file-download fa-fw" v-if="loaded && canDownload"></i>
 			</button>
