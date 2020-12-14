@@ -32,6 +32,10 @@ const formatTime = second => new Date(second * 1000).toISOString().substr(11, 8)
 export default {
 	name: 'vue-bootstrap-audio',
 	props: {
+		value: {
+			type: Number,
+			default: 0
+		},
 		file: {
 			type: String,
 			default: null
@@ -67,6 +71,8 @@ export default {
 			paused: false,
 			percentage: 0,
 			currentTime: '00:00:00',
+			startedPlayingTime: 0,
+			totalPlayingTime: 0,
 			audio: undefined,
 			totalDuration: 0,
 		}
@@ -78,6 +84,11 @@ export default {
 			this.audio.currentTime = parseInt(this.audio.duration / 100 * this.percentage);
 		},
 		stop () {
+			if (this.playing) {
+				let stopTime = new Date().getTime();
+				this.totalPlayingTime += stopTime-this.startedPlayingTime;
+				this.$emit('input', new Date(this.totalPlayingTime).toISOString().substr(11, 8));
+			}
 			this.paused = this.playing = false
 			this.audio.pause()
 			this.audio.currentTime = 0
@@ -86,8 +97,15 @@ export default {
 			if (this.playing) return
 			this.paused = false
 			this.audio.play().then(_ => this.playing = true)
+			this.startedPlayingTime = new Date().getTime();
 		},
 		pause () {
+			if (this.playing) {
+				let stopTime = new Date().getTime();
+				this.totalPlayingTime += stopTime-this.startedPlayingTime;
+				this.$emit('input', new Date(this.totalPlayingTime).toISOString().substr(11, 8));
+			}
+			this.playing = false;
 			this.paused = !this.paused;
 			(this.paused) ? this.audio.pause() : this.audio.play()
 		},
@@ -143,6 +161,11 @@ export default {
 			}
 		},
 		_handleEnded () {
+			if (this.playing) {
+				let stopTime = new Date().getTime();
+				this.totalPlayingTime += stopTime-this.startedPlayingTime;
+				this.$emit('input', new Date(this.totalPlayingTime).toISOString().substr(11, 8));
+			}
 			this.paused = this.playing = false;
 		},
 		init: function () {
