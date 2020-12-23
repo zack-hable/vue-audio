@@ -33,8 +33,8 @@ export default {
 	name: 'vue-bootstrap-audio',
 	props: {
 		value: {
-			type: Number,
-			default: 0
+			type: String,
+			default: '00:00:00'
 		},
 		file: {
 			type: String,
@@ -147,6 +147,12 @@ export default {
 		_handlePlayingUI: function (e) {
 			this.percentage = this.audio.currentTime / this.audio.duration * 100
 			this.currentTime = formatTime(this.audio.currentTime)
+			if (this.playing) {
+				let stopTime = new Date().getTime();
+				this.totalPlayingTime += stopTime-this.startedPlayingTime;
+				this.$emit('input', new Date(this.totalPlayingTime).toISOString().substr(11, 8));
+				this.startedPlayingTime = stopTime;
+			}
 		},
 		_handlePlayPause: function (e) {
 			if (e.type === 'play' && this.firstPlay) {
